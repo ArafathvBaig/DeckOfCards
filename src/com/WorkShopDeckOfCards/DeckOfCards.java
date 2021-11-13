@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class DeckOfCards 
 {
-	public static void main(String[] args) 
+	Scanner sc = new Scanner(System.in);
+	String deck[] = new String[52];
+	int k=0;
+	public void deck()
 	{
-		String deck[] = new String[52];
-		int k=0;
 		String[] suits = { "Spades", "Hearts", "Diamonds", "Clubs" };
 		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",  "Ace" };
 		for(int i=0; i<suits.length; i++)
@@ -22,10 +23,28 @@ public class DeckOfCards
 		{
 			System.out.println(deck[i]);
 		}
+	}
+	public void sequence(int n)
+	{
+		for(int i=1; i<n; i++)
+		{
+			System.out.println("Choose "+i+" player to play");
+			int choice = sc.nextInt();
+			System.out.println(n+" Player Plays at Postition "+i);
+		}		
+	} 
+	public static void main(String[] args) 
+	{
+		DeckOfCards doc = new DeckOfCards();
+		doc.deck();
 		System.out.println("Enter Number of Players");
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		Player pl = new Player();
 		pl.numOfPlayers(n);
+		
+		doc.sequence(n);
+		
 	}
+	
 }
