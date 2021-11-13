@@ -1,5 +1,7 @@
 package com.WorkShopDeckOfCards;
 
+import java.util.Scanner;
+
 public class DeckOfCards 
 {
 	public static void main(String[] args) 
@@ -20,5 +22,10 @@ public class DeckOfCards
 		{
 			System.out.println(deck[i]);
 		}
+		System.out.println("Enter Number of Players");
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		Player pl = new Player();
+		pl.numOfPlayers(n);
 	}
 }
