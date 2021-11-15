@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class DeckOfCards 
 {
 	Scanner sc = new Scanner(System.in);
+	String[] suits = { "Spades", "Hearts", "Diamonds", "Clubs" };
+	String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",  "Ace" };
 	String deck[] = new String[52];
 	String player1[] = new String[9];
 	String player2[] = new String[9];
@@ -17,8 +19,6 @@ public class DeckOfCards
 	String temp;
 	public void deck()
 	{
-		String[] suits = { "Spades", "Hearts", "Diamonds", "Clubs" };
-		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",  "Ace" };
 		for(int i=0; i<suits.length; i++)
 		{
 			for(int j=0; j<ranks.length; j++)
@@ -53,20 +53,20 @@ public class DeckOfCards
 	
 	public void sequence(int n)
 	{
-		int choice; 
+		int choice[] = new int[n]; 
 		for(int i=0; i<n; i++)
 		{
 			System.out.println("Choose "+(i+1)+" player to play");
-			choice = sc.nextInt();
-			System.out.println(choice+" Player Plays at Postition "+(i+1));
-			distribute(choice);
+			choice[i] = sc.nextInt();
+			System.out.println(choice[i]+" Player Plays at Postition "+(i+1));
+			distribute(choice[i]);
 		}
 	} 
 	
-	public void distribute(int choice)
+	public void distribute(int n)
 	{
 		
-		if(choice==1)
+		if(n==1)
 		{
 			for(int j=0; j<9; j++)
 			{
@@ -75,7 +75,7 @@ public class DeckOfCards
 				i++;
 			}				
 		}
-		if(choice==2)
+		if(n==2)
 		{
 			for(int j=0; j<9; j++)
 			{
@@ -84,7 +84,7 @@ public class DeckOfCards
 				i++;
 			}
 		}
-		if(choice==3)
+		if(n==3)
 		{
 			for(int j=0; j<9; j++)
 			{
@@ -93,7 +93,7 @@ public class DeckOfCards
 				i++;
 			}
 		}
-		if(choice==4)
+		if(n==4)
 		{
 			for(int j=0; j<9; j++)
 			{
@@ -102,6 +102,186 @@ public class DeckOfCards
 				i++;
 			}
 		}
+	}
+	
+	public void cardCount(int n)
+	{
+		for(int k=0; k<n; k++)
+		{
+			if(k==0)
+			{
+				int s=0;
+				int h=0;
+				int d=0;
+				int c=0;
+				for(int l=0; l<9; l++)
+				{
+					for(int i=0; i<suits.length; i++)
+					{					
+						for(int j=0; j<ranks.length; j++)
+						{
+							String comparingCard = suits[i].concat(ranks[j]);
+							String playerCard = player1[l];
+							int temp = playerCard.compareTo(comparingCard);
+							if(temp == 0)
+							{
+								if(i==0)
+								{
+									s=s+1;
+								}
+								else if(i==1)
+								{
+									h=h+1;									
+								}
+								else if(i==2)
+								{
+									d=d+1;									
+								}
+								else if(i==3)
+								{
+									c=c+1;									
+								}
+							}			
+						}
+					}
+				}
+				System.out.println("Player 1 has::");
+				System.out.println("Clubs: "+c);
+				System.out.println("Diamonds: "+d);
+				System.out.println("Hearts: "+h);
+				System.out.println("Spaded: "+s);
+			}
+			if(k==1)
+			{
+				int s=0;
+				int h=0;
+				int d=0;
+				int c=0;
+				for(int l=0; l<9; l++)
+				{
+					for(int i=0; i<suits.length; i++)
+					{						
+						for(int j=0; j<ranks.length; j++)
+						{
+							String comparingCard = suits[i].concat(ranks[j]);
+							String playerCard = player1[l];
+							int temp = playerCard.compareTo(comparingCard);
+							if(temp == 0)
+							{
+								if(i==0)
+								{
+									s=s+1;
+								}
+								if(i==1)
+								{
+									h=h+1;
+								}
+								if(i==2)
+								{
+									d=d+1;
+								}
+								if(i==3)
+								{
+									c=c+1;
+								}
+							}			
+						}
+					}
+				}
+				System.out.println("Player 2 has::");
+				System.out.println("Clubs: "+c);
+				System.out.println("Diamonds: "+d);
+				System.out.println("Hearts: "+h);
+				System.out.println("Spaded: "+s);
+			}
+			if(k==2)
+			{
+				int s=0;
+				int h=0;
+				int d=0;
+				int c=0;
+				for(int l=0; l<9; l++)
+				{
+					for(int i=0; i<suits.length; i++)
+					{						
+						for(int j=0; j<ranks.length; j++)
+						{
+							String comparingCard = suits[i].concat(ranks[j]);
+							String playerCard = player1[l];
+							int temp = playerCard.compareTo(comparingCard);
+							if(temp == 0)
+							{
+								if(i==0)
+								{
+									s=s+1;
+								}
+								if(i==1)
+								{
+									h=h+1;
+								}
+								if(i==2)
+								{
+									d=d+1;
+								}
+								if(i==3)
+								{
+									c=c+1;
+								}
+							}			
+						}
+					}
+				}
+				System.out.println("Player 3 has::");
+				System.out.println("Clubs: "+c);
+				System.out.println("Diamonds: "+d);
+				System.out.println("Hearts: "+h);
+				System.out.println("Spaded: "+s);
+			}
+			if(k==3)
+			{
+				int s=0;
+				int h=0;
+				int d=0;
+				int c=0;
+				for(int l=0; l<9; l++)
+				{
+					for(int i=0; i<suits.length; i++)
+					{						
+						for(int j=0; j<ranks.length; j++)
+						{
+							String comparingCard = suits[i].concat(ranks[j]);
+							String playerCard = player1[l];
+							int temp = playerCard.compareTo(comparingCard);
+							if(temp == 0)
+							{
+								if(i==0)
+								{
+									s=s+1;
+								}
+								if(i==1)
+								{
+									h=h+1;
+								}
+								if(i==2)
+								{
+									d=d+1;
+								}
+								if(i==3)
+								{
+									c=c+1;
+								}
+							}			
+						}
+					}
+				}
+				System.out.println("Player 4 has::");
+				System.out.println("Clubs: "+c);
+				System.out.println("Diamonds: "+d);
+				System.out.println("Hearts: "+h);
+				System.out.println("Spaded: "+s);
+			}
+		}
+		
 	}
 	
 	public static void main(String[] args) 
@@ -113,8 +293,8 @@ public class DeckOfCards
 		int n = sc.nextInt();
 		Player pl = new Player();
 		pl.numOfPlayers(n);
-		
-		doc.sequence(n);	
+		doc.sequence(n);
+		doc.cardCount(n);
 	}
 }
 
